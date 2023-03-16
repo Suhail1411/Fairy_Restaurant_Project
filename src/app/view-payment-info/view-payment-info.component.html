@@ -1,0 +1,24 @@
+<table class="table table-dark table-striped">
+    <thead>
+      <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name as on card</th>
+          <th scope="col">Credit Card Number</th>
+          <th scope="col">Card Expairy Month/Year</th>
+          <!-- <th scope="col">Card Expairy year</th> -->
+          <th scope="col">Order Number</th>
+          <th scope="col">CVV Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let payment of data">
+          <td>{{payment.id}}</td>
+          <td>{{payment.NameOnCard}}</td>
+          <td>{{payment.creditCardNumber}}</td>
+          <td>{{payment.ExpMonthAndYear}}</td>
+          <td>{{payment.orderNo}}</td>
+          <td>{{payment.CVV}}</td>
+        </tr>
+      </tbody>
+    </table> 
+  

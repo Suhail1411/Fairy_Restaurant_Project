@@ -1,0 +1,88 @@
+<div class="container" style="width: 50%;">
+    <div class="panel panel-default">
+      <div class="panel-heading">Enter Card Details</div>
+      <div class="panel-body">
+        <div class="right-payment-sec">
+         <form [formGroup]="CreditCardForm" (ngSubmit)="onSubmit()" >         
+            <div class="row">
+                <div class="col-lg-12 col-xs-12">
+                    <div class="form-group">
+                        <label for="nameoncard">Name On Card</label>
+                        <input type="text" class="form-control" id="nameoncard" formControlName="nameoncard"placeholder="Name On Card"  [ngClass]="{error:getControl('nameoncard')?.errors && getControl('nameoncard')?.touched}">  
+
+
+                        <div *ngIf=" getControl('nameoncard')?.errors &&  getControl('nameoncard')?.touched ">
+                            <span class="text-danger" *ngIf="getControl('nameoncard')?.errors?.['required']">Card
+                                name is requiured</span>
+                            <span class="text-danger"
+                                *ngIf="getControl('nameoncard')?.errors?.['maxlength']">Maximum length is 18</span>
+                            <span class="text-danger" *ngIf="getControl('nameoncard')?.errors?.['pattern']">Enter
+                                only letters</span>
+                             <span class="text-danger"
+                                *ngIf="getControl('nameoncard')?.errors?.['minlength']">Minimum length is 4</span>
+                        </div>   
+                        
+                        
+                    </div>
+                </div>
+                <div class="col-lg-12 col-xs-12">
+                    <div class="form-group">
+                        <label for="CreditCardNumber">Card Number</label>
+                        <input type="text" class="form-control" id="CreditCardNumber" formControlName = "CreditCardNumber" placeholder="XXXX-XXXX-XXXX-XXXX"  [ngClass]="{error:getControl('CreditCardNumber')?.errors && getControl('CreditCardNumber')?.touched}">
+                        <div
+                        *ngIf=" getControl('CreditCardNumber')?.errors &&  getControl('CreditCardNumber')?.touched ">
+                        <span class="text-danger"
+                            *ngIf="getControl('CreditCardNumber')?.errors?.['required']">Card Number is
+                            Requiured</span>
+                            <span class="text-danger"
+                            *ngIf="getControl('CreditCardNumber')?.errors?.['pattern']">Enter Only Numbers!!!! &nbsp;&nbsp;</span>
+                        <span class="text-danger"
+                            *ngIf="getControl('CreditCardNumber')?.errors?.['maxlength']">Maximum length is
+                            16</span>
+                            <span class="text-danger"
+                            *ngIf="getControl('CreditCardNumber')?.errors?.['minlength']">Minimum length is
+                            16</span>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 xol-sm-6 col-xs-12">
+                    <div class="form-group">
+                        <label for="formExpiration">Expiration Month and Year</label>
+                        <input type="date" min="{{minDate}}" id="formExpiration" class="form-control"
+                        formControlName="expiry"date-format="MM/yyyy"  [ngClass]="{error:getControl('expiry')?.errors && getControl('expiry')?.touched}" />
+                    <div *ngIf="getControl('expiry')?.errors && getControl('expiry')?.touched">
+                        <span class="text-danger"
+                            *ngIf="getControl('expiry')?.errors?.['required']">Please Select Expiry
+                            Date</span>
+                    </div>                    
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 xol-sm-6 col-xs-12">
+                    <div class="form-group">
+                        <label for="CVV">CVV/CVC</label>
+                        <input type="text" class="form-control" formControlName="CVV"  id="CVV" placeholder="CVV"[ngClass]="{error:getControl('CVV')?.errors && getControl('CVV')?.touched}">
+
+                        <div *ngIf=" getControl('CVV')?.errors &&  getControl('CVV')?.touched ">
+                            <span class="text-danger" *ngIf="getControl('CVV')?.errors?.['required']">
+                               CVV/CVC is required</span>
+                            <span class="text-danger"
+                             *ngIf="getControl('CVV')?.errors?.['maxlength']">Maximum length is 3</span>
+                             <span class="text-danger"
+                             *ngIf="getControl('CVV')?.errors?.['minlength']">Minimum length is 3</span>
+                        </div>                  
+                    </div>
+                </div>
+                <div class="">
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-secondary" style="margin: 20px 20px;padding: 10px 30px;font-weight:600 ;" >Save</button>
+                    <button type="button" class="btn btn-secondary" style="margin: 20px 20px ;padding: 10px 30px;font-weight:600;"routerLink="/paymentInfo">View Payment Info</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
